@@ -1,0 +1,24 @@
+@function asset-url($asset-name-with-extension) {
+  @return url('{{ "#{$asset-name-with-extension}" | asset_url }}');
+}
+
+@function image-url($image-name-with-extension, $size: null) {
+  @if ($size != null) {
+    @return url('{{ "#{$image-name-with-extension}" | asset_img_url: "#{$size}" }}');
+  }
+  @else {
+    @return url('{{ "#{$image-name-with-extension}" | asset_img_url }}');
+  }
+}
+
+@function font-url($font-file-name-without-extension, $format) {
+  @if ($format == 'eot') {
+    @return url('{{ "#{$font-file-name-without-extension}.#{$format}" | asset_url }}') format('embedded-opentype');
+  }
+  @else if ($format == 'ttf') {
+    @return url('{{ "#{$font-file-name-without-extension}.#{$format}" | asset_url }}') format('truetype');
+  }
+  @else {
+    @return url('{{ "#{$font-file-name-without-extension}.#{$format}" | asset_url }}') format('#{$format}');
+  }
+}

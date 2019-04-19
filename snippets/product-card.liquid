@@ -1,0 +1,35 @@
+<div class="product-card">
+  <a class="link-to-product" href="{{ product.url | within: collection }}">
+    {% if product.featured_image %}
+      <div class="card-image">
+        <img src="{{ product.featured_image.src | img_url: '750x1000', crop: 'center' }}" alt="{{ product.featured_image.alt | escape }}">
+      </div>
+    {% endif %}
+
+    <div class="card-info">
+      <div class="card-info-top">
+        <div class="product-title h3">
+          {{ product.title }}
+        </div>
+        <div class="product-price">
+          {{ product.price | money }}
+        </div>
+      </div>
+      <div class="card-info-bottom">
+        {% if product.available %}
+          {% if product.variants.size > 1 %}
+            {% if product.options.size == 1 %}
+              {{ 'product.card.options_styles_singular' | t: optionCount: product.options.size, styleCount: product.variants.size }}
+            {% else %}
+              {{ 'product.card.options_styles_plural' | t: optionCount: product.options.size, styleCount: product.variants.size }}
+            {% endif %} 
+          {% else %}
+            {{ product.variants.first.title }}
+          {% endif %}
+        {% else %}
+          {{ 'product.form.sold_out' | t }}
+        {% endif %}
+      </div>
+    </div>
+  </a>
+</div>

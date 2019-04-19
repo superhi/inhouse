@@ -1,0 +1,18 @@
+#error-404 {
+  height: calc(100vh - #{$header-height});
+  background-color: $light-white;
+  padding-top: $offset-global;
+  padding-bottom: $offset-global;
+  align-items: flex-start;
+
+  .search-form {
+    width: 100%;
+    max-width: 600px;
+    margin-top: $offset-global;
+    margin-bottom: auto;
+  }
+
+  .button {
+    margin-bottom: 0;
+  }
+}

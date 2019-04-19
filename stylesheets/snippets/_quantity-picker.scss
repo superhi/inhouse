@@ -1,0 +1,24 @@
+.quantity-picker {
+  
+  .option-fieldset {
+    display: inline-block;
+  }
+
+  button {
+    @include reset-input;
+    @extend p;
+    width: $line-global;
+    text-align: center;
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    &:hover {
+      color: $black;
+    }
+  }
+
+  .quantity-text {
+    @extend .h3;
+  }
+}

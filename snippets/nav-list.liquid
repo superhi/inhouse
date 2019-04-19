@@ -1,0 +1,18 @@
+<div class="nav-list {% if class != blank %}{{ class }}{% endif %}">
+  {% assign navList = linklists[handle] %}
+  <ul>
+    {% for link in navList.links %}
+      <li>
+        {% assign child_list_handle = link.title | handleize %}
+        {% if linklists[child_list_handle].links != blank %}
+          <a class="text-link" href="{{ link.url }}">{{ link.title }}</a>
+          [{% for childlink in linklists[child_list_handle].links %}
+            <a class="text-link" href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+          {% endfor %}]
+        {% else %}
+          <a class="text-link" href="{{ link.url }}">{{ link.title }}</a>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</div>

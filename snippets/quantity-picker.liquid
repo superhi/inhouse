@@ -1,0 +1,25 @@
+{% if value == blank %}
+{% assign value = 1 %}
+{% endif %}
+
+<div class="quantity-picker js-quantity-picker">
+
+  <label class="option-title" for="{{ id }}">{{ 'product.form.quantity' | t }}</label>
+  
+  <div class="option-fieldset">
+
+    <div class="visually-hidden">
+      <input type="number" class="js-quantity-field {% if field_class != blank %}{{ field_class }}{% endif %}" id="{{ id }}" name="{{ name }}" value="{{ value }}" {% if min != blank %}min="{{ min }}"{% endif %} {% if max != blank %}max="{{ max }}"{% endif %}>
+    </div>
+
+    <button class="quantity-button js-quantity-button minus" type="button" {% if value == min %}disabled{% endif %}>
+      &ndash;
+    </button>
+    <span class="quantity-text js-quantity-text">
+      {{ value }}
+    </span>
+    <button class="quantity-button js-quantity-button plus" type="button" {% if value == max %}disabled{% endif %}>
+      +
+    </button>
+  </div>
+</div>

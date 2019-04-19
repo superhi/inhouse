@@ -1,0 +1,41 @@
+<div class="line-item">
+
+  <div class="line-image">
+    <img src="{{ item | img_url: '80x80', crop: 'center' }}" alt="{{ item.title | escape }}">
+  </div>
+
+  <div class="line-info">
+    <div class="info-content">
+      <div class="line-title">
+        <a class="product-title h3" href="{{ item.url }}">
+          {{ item.product.title }}
+          {% if item.quantity > 1 %}
+          <span class="quantity">
+            x{{ item.quantity }}  
+          </span>
+          {% endif %}
+        </a>
+        <p>
+          {{ item.variant.title }}
+        </p>
+      </div>
+
+      <div class="line-price">
+        {{ item.line_price | money }}
+        {% if item.quantity > 1 %}
+        <br>
+        ({{ item.price | money }}/ea)
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="info-actions">
+      {% assign quantity_id = 'updates_' | append: item.key %}
+      {% include 'quantity-picker' with name: 'updates[]', id: quantity_id, value: item.quantity, min: 0, max: item.variant.inventory_quantity, field_class: 'js-line-quantity' %}
+
+      <a class="js-remove-line" href="/cart/change?line={{ forloop.index }}&amp;quantity=0">
+        {% include 'inline-icon' with svg: 'icon-x.svg', alt: 'Remove' %}
+      </a>
+    </div>
+  </div>
+</div>

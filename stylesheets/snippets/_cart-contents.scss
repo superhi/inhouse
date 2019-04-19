@@ -1,0 +1,34 @@
+.cart-contents {
+
+  .cart-empty-text {
+    margin: ($line-global*5) 0;
+  }
+
+  .subtotal-line {
+    padding: $line-global 0;
+    border-bottom: $standard-border;
+    @include flex-space-between;
+  }
+  
+
+  .update-button {
+    display: inline-block;
+    width: auto;
+    margin-top: $line-global;
+    margin-bottom: $line-global;
+  }
+
+  .cart-buttons {
+    text-align: center;
+  }
+
+  .currency-note {
+    text-align: center;
+    margin-top: $line-global;
+  }
+
+  .keep-shopping {
+    display: table;
+    margin: 0 auto;
+  }
+}

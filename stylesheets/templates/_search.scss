@@ -1,0 +1,31 @@
+#page-search {
+  
+  #search-form-wrap {
+    grid-template-columns: repeat(12, 1fr);
+    padding-top: $offset-global;
+    padding-bottom: $offset-global;
+    height: calc(100vh - #{$header-height});
+    background: $light-white;
+    align-items: center;
+  }
+
+  .search-form,
+  .results-inner {
+    grid-column: 3/11;
+  }
+
+  #search-results {
+    margin-top: $offset-global;
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  .results-grid {
+    margin-top: $offset-global;
+  }
+
+  &.search-performed {
+    #search-form-wrap {
+      max-height: 600px;
+    }
+  }
+}

@@ -1,0 +1,171 @@
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+  font-family: $headline-font;
+  font-weight: $type-bold;
+  color: $light-black;
+}
+
+h1,
+.h1 {
+  font-size: $type-headline-lg;
+  line-height: $line-global * 2;
+}
+
+h2,
+.h2 {
+  font-size: $type-headline-med;
+  line-height: $line-global;
+}
+
+h3,
+.h3 {
+  font-size: $type-headline-sm;
+  line-height: $line-global;
+}
+
+h4,
+.h4 {
+
+}
+
+h5,
+.h5 {
+
+}
+
+h6,
+.h6 {
+
+}
+
+p {
+  font-family: $text-font;
+  font-size: $type-body-med;
+  line-height: $line-global;
+}
+
+.p-large {
+  font-family: $text-font;
+  font-size: $type-body-lg;
+  line-height: $line-global*2;
+}
+
+a {
+  text-decoration: none;
+  color: $text-color;
+  &:hover {
+    color: $black;
+  }
+}
+
+.link-logo {
+  font-size: 55px;
+  display: inline-block;
+  width: 55px;
+}
+
+.text-link {
+  font-family: $text-font;
+  color: $text-color;
+  fill: currentColor;
+  &:hover {
+    color: $black;
+  }
+}
+
+button[type="submit"],
+.button {
+  @include reset-input;
+  display: inline-block;
+  width: auto;
+  padding: ($line-global/2) $line-global;
+  text-align: center;
+  font-size: $type-body-med;
+  line-height: $line-global;
+  background: $black;
+  color: $white;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:not(:disabled):hover {
+    background: lighten($black, 10%);
+  }
+
+  &:hover {
+    color: $white;
+  }
+
+  &.button-cta {
+    width: 100%;
+    padding: $line-global;
+  }
+
+  .text-white & {
+    background: $white;
+    color: $black;
+
+    &:hover {
+      color: $black;
+      background: darken($white, 10%);
+    }
+  }
+}
+
+.styled-select {
+  position: relative;
+  color: $text-color;
+
+  select {
+    @include reset-input;
+    font-family: $text-font;
+    font-size: $type-body-med;
+    line-height: $line-global;
+    color: currentColor;
+    padding-right: $line-global;
+    width: 100%;
+  }
+
+  .inline-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    pointer-events: none;
+    font-size: 0.65em;
+  }
+
+  .text-white & {
+    color: $text-color-light-white;
+
+    &:hover {
+      color: $white;
+    }
+  }
+}
+
+blockquote {
+  p {
+    font-weight: $type-bold;
+  }
+
+  cite {
+    display: block;
+    margin-top: $line-global;
+  }
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,28 @@
+.inline-icon {
+  display: inline-block;
+  vertical-align: middle;
+  fill: currentColor;
+  width: 1em;
+  svg {
+    fill: inherit;
+    max-width: 100%;
+    max-height: 100%;
+
+    g,
+    path {
+      fill: inherit;
+    }
+  }
+
+  &.current-color-stroke {
+    stroke: currentColor;
+    fill: none;
+
+    svg,
+    g,
+    path {
+      fill: none;
+      stroke: inherit;
+    }
+  }
+}

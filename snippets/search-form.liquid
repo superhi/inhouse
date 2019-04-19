@@ -1,0 +1,11 @@
+{% if label == blank %}
+{% assign label = 'search.form.label' | t %}
+{% endif %}
+
+<div class="search-form">
+  <form action="/search" method="get" role="search">
+    <label for="search-term">{{ label }}</label>
+    <input id="search-term" class="js-search-input" type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'search.form.placeholder' | t }}">
+    <button class="js-search-submit" type="submit" {% if search.terms == blank %}disabled{% endif %}>{{ 'search.form.submit' | t }}</button>
+  </form>
+</div>

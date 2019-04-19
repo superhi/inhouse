@@ -1,0 +1,49 @@
+#mini-cart {
+  display: none;
+  position: fixed;
+  top: $header-height;
+  right: 0;
+  background: $white;
+  padding: 0 $offset-global $line-global;
+  max-width: 500px;
+  width: 100%;
+  z-index: 2;
+
+  .mini-cart-contents {
+    .cart-totals,
+    .currency-note {
+      padding-left: 80px;
+      text-align: left;
+    }
+
+    .update-button {
+      display: none;
+    }
+
+    .subtotal-line {
+      border-bottom: 0;
+    }
+  }
+}
+
+#no-click {
+  display: none;
+  position: fixed;
+  top: $header-height;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background: transparentize($light-white, 0.05);
+}
+
+html.mini-cart-open {
+
+  height: 100vh;
+  overflow: hidden;
+  
+  #mini-cart,
+  #no-click {
+    display: block;
+  }
+}

@@ -1,0 +1,34 @@
+<div class="product-option-row">
+  <label class="h3" for="{% if type == 'select' %}select-{{ option_name }}{% endif %}">
+    {{ option.name }}
+  </label>
+
+  <div class="option-values">
+    {% if type == 'select' %}
+      <div class="styled-select">
+        <select name="{{ option_name }}" id="select-{{ option_name }}">
+          <option value="placeholder" disabled {% if selected == false %}selected{% endif %}>Select {{ option.name }}</option>
+          {% for value in option.values %}
+            <option value="{{ value }}" {% if value == selected %}selected{% endif %}>{{ value }}</option>
+          {% endfor %}
+        </select>
+        {% include 'inline-icon' with svg: 'icon-arrow-down.svg', class: 'current-color-stroke' %}
+      </div>
+
+    {% else %}
+
+      {% for value in option.values %}
+        {% assign radio_id = 'option-' | append: option_name | append: '-' | append: value | handleize %}
+        <input class="variant-radio" id="{{ radio_id }}" type="radio" name="{{ option_name }}" value="{{ value }}" {% if value == selected %}checked{% endif %}>
+        <label for="{{ radio_id }}">
+          {% if force_colors == true %}
+            {% include 'option-color' with color: value %}
+          {% else %}
+            {{ value }}
+          {% endif %}
+        </label>
+      {% endfor %}
+
+    {% endif %}
+  </div>
+</div>

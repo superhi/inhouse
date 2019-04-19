@@ -1,0 +1,33 @@
+.product-more {
+
+  .collection-title-tag {
+    width: calc(100% - #{$offset-global});
+    max-width: 427px;
+    margin-left: $offset-global;
+    background-color: $light-white;
+    padding: $line-global;
+  }
+
+  .collection-content {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-top: $line-global*5;
+    padding-bottom: $line-global*5;
+    background-color: $light-white;
+  }
+  
+  .collection-list {
+    grid-template-columns: 16.66vw repeat(5, 33.33vw) 16.66vw;
+
+    >*:last-child {
+      padding-right: $offset-global;
+    }
+
+    .product-card,
+    aside {
+      grid-column: auto;
+      grid-row: 1;
+    }
+  }
+
+}

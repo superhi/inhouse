@@ -1,0 +1,47 @@
+{% paginate collection.products by 9999 %}
+<div id="page-collection">
+
+  {% if collection.image %}
+    <div id="collection-image">
+      <img src="{{ collection.image | img_url: 'master' }}" alt="{{ collection.title }}">
+    </div>
+  {% endif %}
+
+  <div class="collection-content wrapper grid">
+    <aside class="collection-sidebar">
+      <h2>{{ collection.title }}</h2>
+      <div class="collection-description">
+        {{ collection.description }}
+      </div>
+      <div class="collection-sorting">
+        <h3>{{ 'collection.sort.title' | t }}</h3>
+
+        <ul>
+          {% for option in collection.sort_options %}
+            {% if option.value contains 'price-' %}
+              <li>
+                <a class="text-link {% if collection.sort_by == option.value %}active{% endif %}" href="?sort_by={{ option.value }}">
+                  {% if option.value contains 'ascending' %}
+                    {{ 'collection.sort.price_low_high' | t }}
+                  {% else %}
+                    {{ 'collection.sort.price_high_low' | t }}
+                  {% endif %}
+                </a>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+
+        {% if collection.sort_by %}
+          <a class="text-link" href="{{ collection.url }}">{{ 'collection.sort.clear' | t }}</a>
+        {% endif %}
+      </div>
+    </aside>
+
+    {% for product in collection.products %}
+      {% include 'product-card' %}
+    {% endfor %}
+  </div>
+
+</div>
+{% endpaginate %}

@@ -1,0 +1,73 @@
+// Utility Classes
+.visually-hidden { /* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.wrapper {
+  padding-left: $offset-global;
+  padding-right: $offset-global;
+}
+
+.grid {
+  display: grid;
+  grid-column-gap: $gutter-global;
+  grid-row-gap: $gutter-global;
+
+  > * {
+    min-width: 0;
+    min-height: 0;
+  }
+
+  &.collapse {
+    grid-column-gap: 0;
+    grid-row-gap: 0;
+  }
+}
+
+.two-columns {
+  grid-template-columns: 1fr 1fr;
+}
+
+.valign-center {
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  
+  > * {
+    &:first-child {
+      margin-top: auto;
+    }
+
+    &:last-child {
+      margin-bottom: auto;
+    }
+  }
+}
+
+.ta-center {
+  text-align: center;
+}
+
+.text-white {
+  color: $white;
+
+  h1,.h1,h2,.h2,h3,.h3,h4,.h4 {
+    color: $white;
+  }
+
+  p,
+  .accent-color {
+    color: $text-color-white;
+  }
+
+  a {
+    color: $white;
+    &:hover {
+      color: $white;
+    }
+  }
+}

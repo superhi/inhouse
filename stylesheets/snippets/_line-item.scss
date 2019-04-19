@@ -1,0 +1,43 @@
+.line-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding: $line-global 0;
+  border-top: $standard-border;
+  
+
+  .line-image {
+    width: 80px;
+    margin-right: $line-global;
+  }
+
+  .line-info {
+    width: 100%;
+  }
+
+  .info-content,
+  .info-actions {
+    @include flex-space-between;
+    > *:first-child {
+      margin-right: $line-global;
+    }
+  }
+
+  .info-content {
+    align-items: flex-start;
+    margin-bottom: $line-global;
+  }
+
+  .line-price {
+    color: $black;
+    text-align: right;
+  }
+
+  .quantity {
+    color: $text-color;
+  }
+
+  &:last-of-type {
+    border-bottom: $standard-border;
+  }
+}

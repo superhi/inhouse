@@ -1,0 +1,36 @@
+$headline-font: 'Noto Serif', 'Georgia', 'Times New Roman', Times, serif;
+$text-font: 'Plex Mono', 'Courier New', Courier, monospace;
+
+$black: #000000;
+$white: #FFFFFF;
+
+$light-black: #333333;
+$light-white: #FAFAFA;
+
+$text-color: #555555;
+$text-color-white: #CCCCCC;
+$text-color-light: #707070;
+$text-color-light-white: #AAAAAA;
+
+$border-color: rgba(0,0,0,0.15);
+$border-color-white: rgba(255,255,255,0.15);
+
+$standard-border: 1px solid $border-color;
+$standard-border-white: 1px solid $border-color-white;
+
+$line-global: 20px;
+$gutter-global: $line-global*2; // 40px
+$offset-global: $gutter-global;
+
+$header-height: 100px;
+
+$type-headline-lg: 40px;
+$type-headline-med: 20px;
+$type-headline-sm: 15px;
+$type-body-lg: 31px;
+$type-body-med: 13px;
+
+$type-bold: 700;
+$type-book: 400;
+
+$button-height: $line-global*2;

@@ -1,0 +1,56 @@
+.option-color {
+  display: inline-block;
+  width: $line-global;
+  height: $line-global;
+  position: relative;
+
+  .option-color-inner,
+  .color-swatch {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  $outline-space: -5px;
+  .option-color-inner {
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: $outline-space;
+      bottom: $outline-space;
+      left: $outline-space;
+      right: $outline-space;
+      border: 1px solid $text-color-light;
+      pointer-events: none;
+      border-radius: 100%;
+      opacity: 0;
+    }
+
+  }
+
+  .color-swatch {
+    border-radius: 100%;
+  }
+
+
+  &.color-white {
+    .color-swatch {
+      border: $standard-border;
+    }
+  }
+
+  input[type="radio"]:not(:checked):hover + label & {
+    .option-color-inner:after {
+      opacity: 1;
+    }
+  }
+
+  input[type="radio"]:checked + label & {
+    .option-color-inner:after {
+      opacity: 1;
+      border-color: $light-black;
+    }
+  }
+}

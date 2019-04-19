@@ -1,0 +1,99 @@
+{ 
+  "general": {
+    "shop": {
+      "title": "In—House",
+      "description": "Designer furniture for the discerning customer.",
+      "shop_now": "Shop Now",
+      "read_more": "Read More"
+    },
+    "404": {
+      "error_code": "404",
+      "title": "Sorry, we couldn't find that page. Try searching instead?",
+      "back": "Back to Shop"
+    }
+  },
+  "footer": {
+    "list": {
+      "products": "Our Products"
+    },
+    "bottom": {
+      "copyright": "©{{ date }}  InHouse, Inc."
+    }
+  },
+  "collection": {
+    "sort": {
+      "title": "Sort",
+      "price_low_high": "Price, $-$$$",
+      "price_high_low": "Price, $$$-$",
+      "clear": "Clear"
+    }
+  },
+  "cart": {
+    "button": {
+      "count_html": "Cart <span class=\"cart-item-count js-cart-item-count\">{{ itemCount }}</span>"
+    },
+    "empty": {
+      "title": "Your cart is empty",
+      "button": "Keep Shopping"
+    },
+    "filled": {
+      "title": "Your Cart",
+      "subtotal": "Subtotal",
+      "update": "Update",
+      "button": "Checkout",
+      "currency_note_html": "We process all orders in {{ currency }}. While the contents of your cart are currently displayed in <span class=\"js-active-currency\"></span>, the checkout will use {{ currency }} at the current exchange rate."
+    }
+  },
+  "product": {
+    "card": {
+      "options_styles_singular": "{{ optionCount }} option / {{ styleCount }} styles",
+      "options_styles_plural": "{{ optionCount }} options / {{ styleCount }} styles"
+    },
+    "slider": {
+      "count": "{{ slideStart }} of {{ slideTotal }}"
+    },
+    "description": {
+      "title": "Information"
+    },
+    "shipping": {
+      "title": "Shipping",
+      "content": "Products ship via FedEx within 48 hours of order. Due to the nature of our products, signature confirmation is required upon delivery. For more information, see the Delivery & Returns page."
+    },
+    "returns": {
+      "title": "Returns",
+      "content": "We accept returns within 10 days of delivery. For more information, see the Delivery & Returns page."
+    },
+    "form": {
+      "submit": "Add to Cart",
+      "quantity": "Quantity",
+      "sold_out": "Sold Out"
+    },
+    "more": {
+      "vendor": "by {{ vendor }}"
+    },
+    "colors": {
+      "white": "FFFFFF",
+      "black": "000000",
+      "raw": "707070"
+    }
+  },
+  "search": {
+    "form": {
+      "label": "Search In-House",
+      "placeholder": "Your search term",
+      "submit": "Submit"
+    },
+    "results": {
+      "empty": "No results for {{ searchTerms }}",
+      "filled_singular": "result",
+      "filled_plural": "results"
+    }
+  }
+}
+
+
+
+
+
+
+

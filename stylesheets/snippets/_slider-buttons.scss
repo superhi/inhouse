@@ -1,0 +1,27 @@
+$slider-button-size: 50px;
+.slider-button {
+  @include reset-input;
+  font-size: $slider-button-size;
+  width: $slider-button-size;
+  height: $slider-button-size;
+  line-height: $slider-button-size;
+  text-align: center;
+  color: $text-color;
+  position: absolute;
+  top: 50%;
+  margin-top: -($slider-button-size);
+  z-index: 1;
+  overflow: hidden;
+
+  &:hover {
+    color: $black;
+  }
+
+  &.prev {
+    left: 0;
+  }
+
+  &.next {
+    right: 0;
+  }
+}

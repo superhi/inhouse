@@ -1,0 +1,98 @@
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+
+{% assign description = product.description %}
+{% assign shipping = 'product.shipping.content' | t %}
+{% assign returns = 'product.returns.content' | t %}
+{% if product.description contains '---' %}
+  {% assign description = product.description | split: '---' | first %}
+  {% assign description_array = product.description | split: '---' %}
+
+  {% assign productInfoKeys = 'Shipping|Returns' | split: '|' %}
+  {% for key in productInfoKeys %}
+    {% assign split_key = key | prepend: '~*~' | append: '~*~' %}
+    {% if product.description contains split_key %}
+      {% if key == 'Shipping' %}
+        {% assign shipping = product.description | split: split_key | last | split: '---' | first %}
+      {% elsif key == 'Returns' %}
+        {% assign returns = product.description | split: split_key | last | split: '---' | first %}
+      {% endif %}    
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+
+<div id="page-product">
+
+  {% comment %}Begin Product Top{% endcomment %}
+  <div id="product-top" class="wrapper grid">
+
+    <div class="product-images js-product-slideshow">
+      <div class="slides js-slides">
+        {% for image in product.images %}
+          <div class="single-image">
+            <img src="{{ image.src | img_url: '600x' }}" alt="{{ image.alt | escape }}">
+          </div>
+        {% endfor %}
+      </div>
+      
+
+      {% if product.images.size > 1 %}
+        {% include 'slider-buttons' %}
+
+        <div class="image-counter">
+          <span class="js-current-slide">
+            1
+          </span>
+          of {{ product.images.size }}
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="product-actions">
+      {% if collection %}
+        <a href="{{ collection.url }}">{{ collection.title }}</a>
+      {% endif %}
+      <h1 class="product-title">{{ product.title }}</h1>
+
+      {% include 'add-to-cart-form' %}
+      
+    </div>
+
+  </div>
+  {% comment %}End Product Top{% endcomment %}
+
+  {% comment %}Begin Product Bottom{% endcomment %}
+  <div id="product-bottom" class="wrapper grid">
+    
+    <div class="info-section description">
+      <h3>{{ 'product.description.title' | t }}</h3>
+      <div class="product-description">{{ description }}</div>
+    </div>
+
+
+    <div class="info-section shipping">
+      <h3>{{ 'product.shipping.title' | t }}</h3>
+      <p>{{ shipping }}</p>
+    </div>
+
+    <div class="info-section returns">
+      <h3>{{ 'product.returns.title' | t }}</h3>
+      <p>{{ returns }}</p>
+    </div>
+  </div>
+
+  {% comment %}End Product Bottom{% endcomment %}
+
+  {% if collection %}
+  {% include 'product-more' with collection: collection, limit: 6, exclude: product.handle %}
+  {% endif %}
+  
+
+
+  
+
+  
+
+  
+</div>

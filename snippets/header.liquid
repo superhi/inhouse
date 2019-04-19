@@ -1,0 +1,24 @@
+<div id="header-global">
+  <div class="header-left">
+    <a class="link-logo" href="/">
+      {% assign shop_title = 'general.shop.title' | t %}
+      {% include 'inline-icon' with svg: 'logo.svg', alt: shop_title, class: 'logo-main' %}
+    </a>
+
+    {% include 'nav-list', handle: 'main-menu', class: 'header-nav-list' %}
+  </div>
+
+  <div class="header-right">
+    <a class="text-link" href="/search">
+      Search
+      {% include 'inline-icon' with svg: 'icon-search.svg' %}
+    </a>
+    
+    {% include 'currency-picker' %}
+
+    <a class="text-link cart-link js-cart-link" href="/cart">
+      {{ 'cart.button.count_html' | t: itemCount: cart.item_count }}
+    </a>
+  </div>
+  
+</div>

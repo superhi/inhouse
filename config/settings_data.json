@@ -1,0 +1,125 @@
+{
+  "current": {
+    "show_multiple_currencies": true,
+    "currency_format": "money_format",
+    "supported_currencies": "INR GBP CAD USD AUD EUR JPY",
+    "default_currency": "USD",
+    "checkout_header_image": "shopify:\/\/shop_images\/hero-stitch.jpg",
+    "checkout_logo_image": "shopify:\/\/shop_images\/logo.png",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "small",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "PT Serif",
+    "checkout_body_font": "Helvetica Neue",
+    "checkout_accent_color": "#555555",
+    "checkout_button_color": "#000000",
+    "checkout_error_color": "#e32c2b",
+    "sections": {
+      "1554503484865": {
+        "type": "slideshow",
+        "blocks": {
+          "1554503484865-0": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/hero-stitch.jpg",
+              "title": "Collection 0",
+              "content": "by Hi Thanks Bye Studio",
+              "button_url": "shopify:\/\/collections\/collection-0",
+              "button_text": ""
+            }
+          },
+          "1554503484865-1": {
+            "type": "slide",
+            "settings": {
+              "image": "",
+              "title": "Our Mission",
+              "content": "Designer furniture for the discerning customer.",
+              "button_url": "shopify:\/\/pages\/about",
+              "button_text": "About Us"
+            }
+          }
+        },
+        "block_order": [
+          "1554503484865-0",
+          "1554503484865-1"
+        ],
+        "settings": {
+          "autoplay": true,
+          "autoplay_speed": 6500
+        }
+      },
+      "1554506424435": {
+        "type": "content",
+        "blocks": {
+          "1554506424435-0": {
+            "type": "collection",
+            "settings": {
+              "collection": "collection-0",
+              "max_products": 2,
+              "title": "About the Collection",
+              "content": "",
+              "show_button": true,
+              "button_text": ""
+            }
+          },
+          "1554506424435-1": {
+            "type": "image_text",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/studio-2.jpg",
+              "title": "Made-to-order.",
+              "content": "The R0 Dining Chair.",
+              "show_button": true,
+              "button_url": "shopify:\/\/products\/r0-dining-chair",
+              "button_text": "",
+              "direction": "rtl",
+              "bgcolor": "black"
+            }
+          },
+          "1554506424435-2": {
+            "type": "image_text",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/studio-1.jpg",
+              "title": "Handmade in Toronto.",
+              "content": "Learn about what we do.",
+              "show_button": false,
+              "button_url": "shopify:\/\/pages\/about",
+              "button_text": "About Us",
+              "direction": "ltr",
+              "bgcolor": "white"
+            }
+          },
+          "1554507626048": {
+            "type": "quote",
+            "settings": {
+              "content": "Designer furniture for the discerning customer.",
+              "source": "John Appleseed\nIn–House Founder",
+              "show_button": true,
+              "button_url": "shopify:\/\/pages\/about",
+              "button_text": ""
+            }
+          }
+        },
+        "block_order": [
+          "1554506424435-0",
+          "1554506424435-1",
+          "1554506424435-2",
+          "1554507626048"
+        ],
+        "settings": {
+        }
+      }
+    },
+    "content_for_index": [
+      "1554503484865",
+      "1554506424435"
+    ]
+  },
+  "presets": {
+    "Default": {
+    }
+  }
+}

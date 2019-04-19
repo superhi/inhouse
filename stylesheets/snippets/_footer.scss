@@ -1,0 +1,58 @@
+#footer-global {
+  margin-top: $header-height;
+
+  .footer-image-band {
+    height: $header-height*3;
+    background-image: image-url('hero-stitch.jpg', 'master');
+    background-size: cover;
+  }
+  
+  .footer-inner {
+    width: 100%;
+    height: $header-height;
+    background: $black;
+    padding: $line-global $offset-global;
+    @include flex-space-between;
+  }
+
+  .nav-list {
+    display: inline-block;
+    li {
+      display: inline-block;
+      &:not(:first-of-type) {
+        margin-left: $line-global;
+      }
+    }
+    &:not(:first-of-type) {
+      margin-left: $line-global;
+    }
+  }
+
+  .main-menu-list {
+    margin-left: $offset-global;
+  }
+
+  .secondary-menu-list {
+    .text-link:not(:hover) {
+      color: $text-color-light-white;
+    }
+  }
+
+  .footer-right {
+    margin-top: 18px;
+    > * {
+      display: inline-block;
+      &:not(:first-child) {
+        margin-left: $line-global;
+      }
+    }
+  }
+
+
+  .template-index &,
+  .template-404 &,
+  .template-product &,
+  .template-search & {
+    margin-top: 0;
+  }
+}

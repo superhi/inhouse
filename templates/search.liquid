@@ -1,0 +1,38 @@
+<div id="page-search" class="{% if search.performed %}search-performed{% endif %}">
+
+  <div id="search-form-wrap" class="wrapper grid">
+    {% include 'search-form' %}
+  </div>
+
+  {% if search.performed %}
+    <div id="search-results" class="wrapper grid">
+      <div class="results-inner">
+        {% assign product_count = 0 | times: 1 %}
+        {% for item in search.results %}
+          {% if item.object_type == 'product' %}
+            {% assign product_count = product_count | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+        
+        {% if product_count > 0 %}
+          {% assign filled_singular = 'search.results.filled_singular' | t %}
+          {% assign filled_plural = 'search.results.filled_plural' | t %}
+
+          <h1>{{ product_count }} {{ product_count | pluralize: filled_singular, filled_plural }}</h1>
+          
+          <div class="results-grid grid two-columns">
+            {% for item in search.results %}
+              {% if item.object_type == 'product' %}
+                {% include 'product-card' with product: item %}
+              {% endif %}
+            {% endfor %}
+          </div>
+
+        {% else %}
+          <h1>{{ 'search.results.empty' | t: searchTerms: search.terms }}</h1>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+
+</div> 

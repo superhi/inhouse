@@ -1,0 +1,39 @@
+<div class="collection-list">
+  <aside class="collection-block-info">
+    <h2>
+      {% if title != blank %}
+        {{ title }}
+      {% else %}
+        {{ collection.title }}
+      {% endif %}
+    </h2>
+    
+    {% if content != false %}
+      <div class="collection-description">
+        {% if content != blank %}
+          {{ content }}
+        {% else %}
+          {{ collection.description }}
+        {% endif %}
+      </div>
+    {% endif %}
+  </aside>
+
+  {% for product in collection.products limit: max_products %}
+    {% unless exclude != blank and exclude contains product.handle %}
+      {% include 'product-card' %}
+    {% endunless %}
+  {% endfor %}
+
+  <aside class="collection-block-button">
+    {% if show_button %}
+      <a href="{{ collection.url }}" class="button">
+        {% if button_text != blank %}
+          {{ button_text }}
+        {% else %}
+          {{ 'general.shop.shop_now' | t }}
+        {% endif %}
+      </a>
+    {% endif %}
+  </aside>
+</div>

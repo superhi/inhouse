@@ -1,0 +1,126 @@
+{% schema %}
+  {
+    "name": "Slideshow",
+    "class": "hero-slideshow",
+    "settings": [
+      {
+        "id": "autoplay",
+        "type": "checkbox",
+        "label": "Autoplay Slideshow",
+        "default": true
+      },
+      {
+        "id": "autoplay_speed",
+        "type": "range",
+        "min": 2000,
+        "max": 8000,
+        "step": 500,
+        "unit": "ms",
+        "label": "Autoplay Speed",
+        "default": 5000
+      }
+    ],
+    "blocks": [
+      {
+        "type": "slide",
+        "name": "Slide",
+        "settings": [
+          {
+            "id": "image",
+            "type": "image_picker",
+            "label": "Image"
+          },
+          {
+            "id": "title",
+            "type": "text",
+            "label": "Title",
+            "placeholder": "Slide Title"
+          },
+          {
+            "id": "content",
+            "type": "textarea",
+            "label": "Slide Content"
+          },
+          {
+            "id": "button_url",
+            "type": "url",
+            "label": "Button URL"
+          },
+          {
+            "id": "button_text",
+            "type": "text",
+            "label": "Button Text",
+            "placeholder": "Shop Now",
+            "info": "Defaults to \"Shop Now\""
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "category": "Hero",
+        "name": "Slideshow",
+        "settings": {
+          "autoplay": true,
+          "autoplay_speed": 6500
+        },
+        "blocks": [
+          {
+            "type": "slide",
+            "settings": {
+              "title": "Slide 1",
+              "content": "Some slide 1 content",
+              "button_url": "#",
+              "button_text": "Slide Button"
+            }
+          },
+          {
+            "type": "slide",
+            "settings": {
+              "title": "Slide 2",
+              "content": "Lorem Ipsum Dolor Sit Amet",
+              "button_url": "#"
+            }
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+<div class="slideshow-wrap js-section-slideshow" data-autoplay="{{ section.settings.autoplay }}" data-autoplay-speed="{{ section.settings.autoplay_speed }}">
+  
+  {% if section.blocks.size > 1 %}
+    {% include 'slider-buttons' %}
+  {% endif %}
+
+  <div class="slides js-slides">
+    {% for block in section.blocks %}
+      <div class="slide" {{ block.shopify_attributes }}>
+
+        {% if block.settings.image != blank %}
+          <div class="slide-image">
+            <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt }}">
+          </div>
+        {% endif %}
+        
+        <div class="slide-content">
+          <h1>{{ block.settings.title }}</h1>
+          {% if block.settings.content != blank %}
+            <p>{{ block.settings.content }}</p>
+          {% endif %}
+
+          {% if block.settings.button_url != blank %}
+            <a href="{{ block.settings.button_url }}" class="button">
+              {% if block.settings.button_text != blank %}
+                {{ block.settings.button_text }}
+              {% else %}
+                {{ 'general.shop.shop_now' | t }}
+              {% endif %}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
