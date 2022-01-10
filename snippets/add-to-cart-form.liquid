@@ -13,7 +13,7 @@
   {% assign has_selected_variant = true %}
 {% endif %}
 
-{% if has_multiple_variants %}
+{% if has_multiple_options or has_multiple_variants %}
   {% include 'get-variants-with-quantity-json' with product: product %}
 {% endif %}
 
